@@ -20,6 +20,7 @@
             width: 90px; 
             flex-shrink: 0; 
             white-space: nowrap;
+            font-size: 0.875rem; 
         }
         @keyframes fadeInOut {
             0% { opacity: 0; transform: translateY(-10px); }
@@ -56,7 +57,7 @@
         }
         
         .modal-content-container {
-             max-height: 80vh; 
+             max-height: 70vh; 
              overflow-y: auto; 
              padding: 1rem; 
         }
@@ -201,7 +202,7 @@
     
     <div id="result-modal" class="modal-overlay hidden fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4">
         
-        <div class="modal-content bg-white w-full max-w-md md:max-w-xl rounded-2xl shadow-3xl relative" onclick="event.stopPropagation()">
+        <div class="modal-content bg-white w-full max-w-xs md:max-w-md rounded-2xl shadow-3xl relative" onclick="event.stopPropagation()">
             
             <div class="modal-content-container p-4 sm:p-6">
                 <div id="modal-card-content" class="content-transition content-active">
@@ -585,9 +586,9 @@
                         return; 
                     } else {
                         normalContentHtml.push(`
-                            <div class="flex flex-col sm:flex-row items-start text-base border-b border-gray-100 py-3 text-red-500">
-                                <span class="property-key mr-2 text-red-500 font-bold">${displayKey}:</span> 
-                                <span class="font-normal text-sm sm:text-base">Nilai Barcode Kosong/Tidak Valid</span>
+                            <div class="flex flex-col sm:flex-row items-start text-sm border-b border-gray-100 py-2 text-red-500">
+                                <span class="property-key mr-2 text-red-500 font-bold">BARCODE:</span> 
+                                <span class="font-normal text-sm">Nilai Barcode Kosong/Tidak Valid</span>
                             </div>
                         `);
                         return; 
@@ -600,19 +601,20 @@
 
                 if (key === 'PRICE') {
                     displayValue = formatToIDR(value);
-                    valueClass = 'text-green-700 font-extrabold text-3xl tracking-wide'; 
+                    valueClass = 'text-green-700 font-extrabold text-2xl'; 
                     isPrice = true;
                 } else if (key === 'PLU') {
-                     valueClass = 'text-blue-600 font-bold text-lg'; 
+                    valueClass = 'text-blue-600 font-bold text-base'; 
                 } else {
                     displayValue = (typeof value === 'object' && value !== null)
                         ? `<pre class="bg-gray-100 p-2 rounded text-xs overflow-x-auto mt-1">${JSON.stringify(value, null, 2)}</pre>`
                         : String(value);
+                    valueClass = 'text-gray-700 font-medium text-sm'; 
                 }
                 
                 const currentHtml = `
-                    <div class="flex flex-col sm:flex-row items-start text-base border-b border-gray-100 last:border-b-0 py-3">
-                        <span class="property-key mr-2 text-gray-500 text-sm sm:text-base">${displayKey}:</span> 
+                    <div class="flex flex-col sm:flex-row items-start text-sm border-b border-gray-100 last:border-b-0 py-2">
+                        <span class="property-key mr-2 text-gray-500">${displayKey}:</span> 
                         <span class="flex-1 break-words ${valueClass} ${isPrice ? 'mt-1 sm:mt-0' : 'mt-0'}">${displayValue}</span>
                     </div>
                 `;
