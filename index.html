@@ -33,11 +33,11 @@
         }
 
         .header-title {
-            background-image: linear-gradient(to right, #1d4ed8, #3b82f6);
+            background-image: linear-gradient(to right, #065f46, #10b981); 
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
-            text-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            text-shadow: 0 4px 8px rgba(0, 0, 0, 0.4); 
         }
 
         .modal-overlay {
@@ -45,11 +45,13 @@
             backdrop-filter: blur(5px);
             transition: opacity 0.3s ease;
         }
+        
         .modal-content {
             transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
             transform: scale(0.95) translateY(20px);
             opacity: 0;
             max-width: 95vw; 
+            background-color: #ffffff; 
         }
         .modal-show .modal-content {
             transform: scale(1) translateY(0);
@@ -79,12 +81,11 @@
         }
         
         input:focus, select:focus {
-            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.3); 
+            box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.3); 
         }
     </style>
 </head>
-<body class="bg-gray-50 min-h-screen flex flex-col items-center"> 
-
+<body class="bg-gray-800 min-h-screen flex flex-col items-center">
     <div id="main-container" class="w-full max-w-xl lg:max-w-3xl p-4 sm:p-6 flex-grow"> 
         <header class="text-center py-6 md:py-8 mb-4"> 
             <h1 class="header-title text-4xl sm:text-5xl font-extrabold tracking-tight">
@@ -92,51 +93,51 @@
             </h1>
         </header>
 
-        <div class="bg-white p-4 sm:p-6 shadow-xl rounded-2xl mb-4 flex flex-col space-y-3 border border-blue-100">
+        <div class="bg-gray-900 p-4 sm:p-6 shadow-xl rounded-2xl mb-4 flex flex-col space-y-3 border border-gray-700">
             <div class="relative flex-grow">
-                <i data-lucide="search" class="absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-gray-400 z-10"></i>
+                <i data-lucide="search" class="absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-gray-500 z-10"></i>
                 
                 <input 
                     id="search-input" 
                     type="text" 
                     placeholder="Masukkan PLU, Nama, atau Barcode..."
-                    class="w-full p-3 pl-10 pr-4 border-2 border-gray-200 rounded-xl bg-white text-gray-800 placeholder-gray-400 focus:border-blue-500 focus:ring-1 outline-none transition duration-150 font-medium"
-                >
+                    class="w-full p-3 pl-10 pr-4 border-2 border-gray-700 rounded-xl bg-gray-800 text-gray-100 placeholder-gray-500 focus:border-emerald-500 focus:ring-1 outline-none transition duration-150 font-medium"
+                    >
             </div>
             
             <button 
                 id="itt-menu-button" 
                 onclick="toggleIttFilters()"
-                class="w-full bg-yellow-500 hover:bg-yellow-600 text-white font-semibold py-3 px-4 rounded-xl shadow-md transition duration-200 ease-in-out transform hover:scale-[1.005] active:scale-[0.99] focus:ring-4 focus:ring-yellow-300 focus:ring-offset-2 flex items-center justify-center space-x-2"
-            >
+                class="w-full bg-amber-500 hover:bg-amber-600 text-white font-semibold py-3 px-4 rounded-xl shadow-md transition duration-200 ease-in-out transform hover:scale-[1.005] active:scale-[0.99] focus:ring-4 focus:ring-amber-300 focus:ring-offset-2 flex items-center justify-center space-x-2"
+                >
                 <i data-lucide="filter" class="h-5 w-5"></i>
                 <span id="itt-button-text">Tampilkan Menu ITT WDCP</span>
             </button>
         </div>
 
-        <div id="itt-filters" class="hidden bg-white p-4 sm:p-6 shadow-xl rounded-2xl mb-4 border border-yellow-200">
-            <h4 class="text-lg font-bold text-gray-800 mb-4 flex items-center space-x-2 border-b pb-2 border-yellow-100">
-                 <i data-lucide="list-filter" class="h-5 w-5 text-yellow-500"></i>
+        <div id="itt-filters" class="hidden bg-gray-900 p-4 sm:p-6 shadow-xl rounded-2xl mb-4 border border-amber-700">
+            <h4 class="text-lg font-bold text-gray-100 mb-4 flex items-center space-x-2 border-b pb-2 border-amber-900">
+                 <i data-lucide="list-filter" class="h-5 w-5 text-amber-500"></i>
                  <span>Filter ITT WDCP</span>
             </h4>
             <div class="grid grid-cols-1 gap-4 md:grid-cols-3"> 
                 <div>
-                    <label for="filter-modis" class="block text-sm font-medium text-gray-700 mb-1">Pilih Modis</label>
-                    <select id="filter-modis" class="w-full p-3 border-2 border-gray-200 rounded-xl bg-white text-gray-800 focus:border-blue-500 focus:ring-1 outline-none transition duration-150">
+                    <label for="filter-modis" class="block text-sm font-medium text-gray-300 mb-1">Pilih Modis</label>
+                    <select id="filter-modis" class="w-full p-3 border-2 border-gray-700 rounded-xl bg-gray-800 text-gray-100 focus:border-emerald-500 focus:ring-1 outline-none transition duration-150">
                         <option value="">-- Semua Modis --</option>
                     </select>
                 </div>
                 
                 <div>
-                    <label for="filter-shelf-start" class="block text-sm font-medium text-gray-700 mb-1">Shelf Dari</label>
-                    <select id="filter-shelf-start" class="w-full p-3 border-2 border-gray-200 rounded-xl bg-white text-gray-800 focus:border-blue-500 focus:ring-1 outline-none transition duration-150">
+                    <label for="filter-shelf-start" class="block text-sm font-medium text-gray-300 mb-1">Shelf Dari</label>
+                    <select id="filter-shelf-start" class="w-full p-3 border-2 border-gray-700 rounded-xl bg-gray-800 text-gray-100 focus:border-emerald-500 focus:ring-1 outline-none transition duration-150">
                         <option value="">-- Pilih Shelf Awal --</option>
                     </select>
                 </div>
                 
                 <div>
-                    <label for="filter-shelf-end" class="block text-sm font-medium text-gray-700 mb-1">Shelf Sampai</label>
-                    <select id="filter-shelf-end" class="w-full p-3 border-2 border-gray-200 rounded-xl bg-white text-gray-800 focus:border-blue-500 focus:ring-1 outline-none transition duration-150">
+                    <label for="filter-shelf-end" class="block text-sm font-medium text-gray-300 mb-1">Shelf Sampai</label>
+                    <select id="filter-shelf-end" class="w-full p-3 border-2 border-gray-700 rounded-xl bg-gray-800 text-gray-100 focus:border-emerald-500 focus:ring-1 outline-none transition duration-150">
                         <option value="">-- Pilih Shelf Akhir --</option>
                     </select>
                 </div>
@@ -147,8 +148,8 @@
              <button 
                 id="search-button" 
                 onclick="handleSearch()"
-                class="w-1/2 bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-8 rounded-xl shadow-lg transition duration-200 ease-in-out transform hover:scale-[1.005] active:scale-[0.99] focus:ring-4 focus:ring-blue-300 focus:ring-offset-2 flex items-center justify-center space-x-2"
-            >
+                class="w-1/2 bg-emerald-600 hover:bg-emerald-700 text-white font-semibold py-3 px-8 rounded-xl shadow-lg transition duration-200 ease-in-out transform hover:scale-[1.005] active:scale-[0.99] focus:ring-4 focus:ring-emerald-300 focus:ring-offset-2 flex items-center justify-center space-x-2"
+                >
                 <i data-lucide="scan-line" class="h-5 w-5"></i>
                 <span>CARI DATA</span>
             </button>
@@ -156,33 +157,34 @@
              <button 
                 id="reset-button" 
                 onclick="resetAll()"
-                class="w-1/2 bg-gray-400 hover:bg-gray-500 text-white font-semibold py-3 px-8 rounded-xl shadow-lg transition duration-200 ease-in-out transform hover:scale-[1.005] active:scale-[0.99] focus:ring-4 focus:ring-gray-300 focus:ring-offset-2 flex items-center justify-center space-x-2"
-            >
+                class="w-1/2 bg-gray-600 hover:bg-gray-700 text-white font-semibold py-3 px-8 rounded-xl shadow-lg transition duration-200 ease-in-out transform hover:scale-[1.005] active:scale-[0.99] focus:ring-4 focus:ring-gray-300 focus:ring-offset-2 flex items-center justify-center space-x-2"
+                >
                 <i data-lucide="rotate-ccw" class="h-5 w-5"></i>
                 <span>RESET</span>
             </button>
         </div>
         
         <div id="search-feedback-message" 
-             class="hidden mx-auto max-w-full text-center bg-yellow-50 text-yellow-800 font-semibold py-3 px-6 rounded-xl shadow-md border border-yellow-200 mb-6 transition duration-300 ease-in-out">
+             class="hidden mx-auto max-w-full text-center bg-amber-900/20 text-amber-300 font-semibold py-3 px-6 rounded-xl shadow-md border border-amber-700 mb-6 transition duration-300 ease-in-out">
             <i data-lucide="alert-triangle" class="inline-block h-5 w-5 mr-2 align-text-bottom"></i>
             Harap masukkan kata kunci atau pilih filter untuk mencari.
         </div>
+        
         <div id="data-status-area">
-            <div id="loading" class="text-center p-12 sm:p-16 text-gray-500 bg-white shadow-xl rounded-xl border-t-4 border-blue-500">
-                <svg class="animate-spin h-10 w-10 text-blue-600 mx-auto" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+            <div id="loading" class="text-center p-12 sm:p-16 text-gray-400 bg-gray-900 shadow-xl rounded-xl border-t-4 border-emerald-500">
+                <svg class="animate-spin h-10 w-10 text-emerald-600 mx-auto" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
                     <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
                     <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
                 </svg>
-                <p class="mt-4 text-xl font-semibold text-gray-700">Memuat data...</p>
+                <p class="mt-4 text-xl font-semibold text-gray-200">Memuat data...</p>
             </div>
             
-            <div id="initial-message" class="text-center max-w-full mx-auto p-8 sm:p-10 bg-white shadow-xl rounded-2xl border-t-8 border-blue-500 hidden">
-                <i data-lucide="package-search" class="h-12 w-12 text-blue-500 mx-auto mb-4"></i>
-                <h3 class="text-xl sm:text-2xl font-bold text-gray-800">Data Berhasil Dimuat !</h3>
+            <div id="initial-message" class="text-center max-w-full mx-auto p-8 sm:p-10 bg-gray-900 shadow-xl rounded-2xl border-t-8 border-emerald-500 hidden">
+                <i data-lucide="package-search" class="h-12 w-12 text-emerald-500 mx-auto mb-4"></i>
+                <h3 class="text-xl sm:text-2xl font-bold text-gray-100">Data Berhasil Dimuat !</h3>
             </div>
 
-            <div id="error-message" class="hidden bg-red-100 border-l-4 border-red-500 text-red-700 p-4 sm:p-6 rounded-lg relative shadow-md mt-6">
+            <div id="error-message" class="hidden bg-red-900/20 border-l-4 border-red-500 text-red-300 p-4 sm:p-6 rounded-lg relative shadow-md mt-6">
                 <div class="flex items-center">
                     <i data-lucide="skull" class="h-6 w-6 mr-3"></i>
                     <div>
@@ -192,10 +194,10 @@
                 </div>
             </div>
             
-             <div id="no-results" class="hidden text-center p-12 sm:p-16 text-gray-500 bg-white shadow-xl rounded-xl border-t-4 border-red-500 mt-6">
+            <div id="no-results" class="hidden text-center p-12 sm:p-16 text-gray-400 bg-gray-900 shadow-xl rounded-xl border-t-4 border-red-500 mt-6">
                 <i data-lucide="ghost" class="h-14 w-14 text-red-400 mx-auto mb-4"></i>
-                <p class="text-2xl sm:text-3xl font-bold text-gray-800">Tidak Ada Hasil Ditemukan</p>
-                <p class="mt-2 text-gray-500">Coba periksa kata kunci atau filter ..</p>
+                <p class="text-2xl sm:text-3xl font-bold text-gray-100">Tidak Ada Hasil Ditemukan</p>
+                <p class="mt-2 text-gray-400">Coba periksa kata kunci atau filter ..</p>
             </div>
         </div>
     </div> 
@@ -209,25 +211,25 @@
                 </div>
             </div>
 
-            <div class="p-3 sm:p-4 bg-gray-50 border-t border-gray-200 flex flex-col sm:flex-row justify-between items-center rounded-b-2xl">
+            <div class="p-3 sm:p-4 bg-gray-100 border-t border-gray-300 flex flex-col sm:flex-row justify-between items-center rounded-b-2xl">
                 
                 <div id="modal-navigation" class="flex items-center justify-center sm:justify-start w-full sm:w-auto mb-3 sm:mb-0">
                     <button id="prev-button" onclick="navigateResult(-1)" 
-                            class="hidden p-2 text-gray-600 bg-white border border-gray-300 rounded-full hover:bg-gray-100 transition duration-150 shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 disabled:opacity-50 disabled:cursor-not-allowed">
+                            class="hidden p-2 text-gray-700 bg-white border border-gray-300 rounded-full hover:bg-gray-100 transition duration-150 shadow-sm focus:outline-none focus:ring-2 focus:ring-emerald-500 disabled:opacity-50 disabled:cursor-not-allowed">
                          <i data-lucide="chevron-left" class="h-5 w-5"></i>
                     </button>
                     
-                    <p id="nav-status" class="text-sm font-semibold text-gray-600 mx-3 sm:mx-4 hidden">
+                    <p id="nav-status" class="text-sm font-semibold text-gray-700 mx-3 sm:mx-4 hidden">
                     </p>
                     
                     <button id="next-button" onclick="navigateResult(1)" 
-                            class="hidden p-2 text-gray-600 bg-white border border-gray-300 rounded-full hover:bg-gray-100 transition duration-150 shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 disabled:opacity-50 disabled:cursor-not-allowed">
+                            class="hidden p-2 text-gray-700 bg-white border border-gray-300 rounded-full hover:bg-gray-100 transition duration-150 shadow-sm focus:outline-none focus:ring-2 focus:ring-emerald-500 disabled:opacity-50 disabled:cursor-not-allowed">
                          <i data-lucide="chevron-right" class="h-5 w-5"></i>
                     </button>
                 </div>
                 
                 <button onclick="closeModal()" 
-                        class="w-full sm:w-auto bg-red-500 hover:bg-red-600 text-white font-semibold py-2 px-5 rounded-xl transition duration-200 shadow-md focus:ring-2 focus:ring-red-300">
+                        class="w-full sm:w-auto bg-red-600 hover:bg-red-700 text-white font-semibold py-2 px-5 rounded-xl transition duration-200 shadow-md focus:ring-2 focus:ring-red-400">
                     Tutup
                 </button>
             </div>
@@ -235,9 +237,9 @@
         </div>
     </div>
     
-    <footer class="w-full bg-white text-center text-gray-500 text-xs sm:text-sm font-medium px-4 sm:px-8 py-3 border-t border-gray-200 mt-auto">
+    <footer class="w-full bg-gray-900 text-center text-gray-400 text-xs sm:text-sm font-medium px-4 sm:px-8 py-3 border-t border-gray-700 mt-auto">
         ~ Made With 🖤 by M.H.R ~
-        <div id="timestamp" class="text-xs text-gray-400 mt-1 font-normal"></div>
+        <div id="timestamp" class="text-xs text-gray-500 mt-1 font-normal"></div>
     </footer>
 
     <script>
@@ -305,7 +307,7 @@
             const second = String(now.getSeconds()).padStart(2, '0');
             const timePart = `${hour}:${minute}:${second}`;
 
-            const finalFormat = `${datePart} - pukul ${timePart} WIB`;
+            const finalFormat = `${datePart} - ${timePart}`;
             
             timestampDiv.textContent = finalFormat;
         }
@@ -334,12 +336,12 @@
             
             if (isHidden) {
                 ittButtonText.textContent = 'Tampilkan Menu ITT WDCP';
-                document.getElementById('itt-menu-button').classList.remove('bg-yellow-600', 'ring-offset-2');
-                document.getElementById('itt-menu-button').classList.add('bg-yellow-500');
+                document.getElementById('itt-menu-button').classList.remove('bg-amber-600', 'ring-offset-2');
+                document.getElementById('itt-menu-button').classList.add('bg-amber-500');
             } else {
                 ittButtonText.textContent = 'Sembunyikan Menu ITT WDCP';
-                document.getElementById('itt-menu-button').classList.remove('bg-yellow-500');
-                document.getElementById('itt-menu-button').classList.add('bg-yellow-600', 'ring-offset-2');
+                document.getElementById('itt-menu-button').classList.remove('bg-amber-500');
+                document.getElementById('itt-menu-button').classList.add('bg-amber-600', 'ring-offset-2');
             }
         }
         
@@ -512,14 +514,14 @@
             const keyMap = {
                 'DESC2': 'NAMA PRODUK', 
                 'PLU': 'PLU',
-                'PRICE': 'HARGA', 
+                'PRICE': 'HARGA NORMAL', 
                 'NAMA_RAK': 'MODIS',
                 'NOSHELF': 'SHELF',
                 'KIRIKANAN': 'BARIS',
                 'BARCD': 'BARCODE' 
             };
             
-            const propertyOrder = ['DESC2', 'PLU', 'PRICE', 'BARCD', 'NAMA_RAK', 'NOSHELF', 'KIRIKANAN'];
+            const propertyOrder = ['DESC2', 'PLU', 'BARCD', 'NAMA_RAK', 'NOSHELF', 'KIRIKANAN', 'PRICE'];
 
             const displayKeys = Object.keys(item).sort((a, b) => {
                  const aIndex = propertyOrder.indexOf(a);
@@ -533,11 +535,11 @@
             });
             
             let productTitle = item.DESC2 || 'Produk Tanpa Nama'; 
+            let pluValue = item.PLU || ''; 
             
             const headerHtml = `
-                <div class="text-center mb-4 pb-2 border-b border-blue-200">
-                    <h3 class="text-xl font-extrabold text-gray-900">${productTitle}</h3>
-                    
+                <div class="text-center mb-4 pb-2 border-b border-gray-300"> 
+                    <h3 class="text-xl font-extrabold text-gray-800">${productTitle}</h3> 
                 </div>
             `;
             
@@ -550,9 +552,11 @@
                     displayKey = keyMap[key];
                 }
 
-                if (key === 'DESC2') return;
+                if (key === 'DESC2' || key === 'PLU') return; 
 
                 const isBarcodeKey = key === 'BARCD'; 
+                const isShelfKey = key === 'NOSHELF';
+                const isBarisKey = key === 'KIRIKANAN';
 
                 if (isBarcodeKey) {
                     let barcodeValues = [];
@@ -563,9 +567,8 @@
                     }
                     
                     if (barcodeValues.length > 0) {
-                        let currentBarcodeHtml = `<div class="mb-4 p-4 bg-gray-50 rounded-xl border-2 border-gray-200 shadow-inner">
-                            <h4 class="text-base font-bold text-gray-700 mb-2">Barcode (${barcodeValues.length} Total)</h4>
-                        `; 
+                        let currentBarcodeHtml = `<div class="mb-4 p-4 bg-gray-100 rounded-xl border-2 border-gray-300 shadow-inner text-center"> 
+                            <h4 class="text-xl font-bold text-gray-800 mb-2">${pluValue}</h4> `; 
                         
                         barcodeValues.forEach((barcodeValue, index) => {
                             const uniqueElementId = `${elementId}-${index}`; 
@@ -573,11 +576,8 @@
                             barcodesToRender.push({ id: uniqueElementId, value: barcodeValue });
                             
                             currentBarcodeHtml += `
-                                <div class="mt-3 pt-3 border-t border-gray-300 first:border-t-0 first:mt-0">
-                                    <svg id="${uniqueElementId}" 
-                                         data-barcode-value="${barcodeValue}" 
-                                         class="w-full h-14"></svg>
-                                    <p class="text-center text-sm text-gray-700 font-mono mt-1 font-bold">${barcodeValue}</p>
+                                <div class="mt-3 pt-3 border-t border-gray-300 first:border-t-0 first:mt-0"> 
+                                    <svg id="${uniqueElementId}" data-barcode-value="${barcodeValue}" class="w-full h-14"></svg>
                                 </div>
                             `;
                         });
@@ -586,14 +586,19 @@
                         return; 
                     } else {
                         normalContentHtml.push(`
-                            <div class="flex flex-col sm:flex-row items-start text-sm border-b border-gray-100 py-2 text-red-500">
-                                <span class="property-key mr-2 text-red-500 font-bold">BARCODE:</span> 
-                                <span class="font-normal text-sm">Nilai Barcode Kosong/Tidak Valid</span>
+                            <div class="flex flex-col sm:flex-row items-start text-sm border-b border-gray-300 py-2 text-red-600"> 
+                                <span class="property-key mr-2 text-red-600 font-bold">BARCODE:</span> 
+                                <span class="font-normal text-sm text-red-500">Nilai Barcode Kosong/Tidak Valid</span> 
                             </div>
                         `);
                         return; 
                     }
                 } 
+                
+                if (isShelfKey || isBarisKey || key === 'NAMA_RAK') {
+                    return; 
+                }
+
                 
                 let displayValue = String(value);
                 let valueClass = 'text-gray-700 font-medium';
@@ -601,20 +606,18 @@
 
                 if (key === 'PRICE') {
                     displayValue = formatToIDR(value);
-                    valueClass = 'text-green-700 font-extrabold text-2xl'; 
+                    valueClass = 'text-red-600 font-extrabold text-3xl'; 
                     isPrice = true;
-                } else if (key === 'PLU') {
-                    valueClass = 'text-blue-600 font-bold text-base'; 
                 } else {
                     displayValue = (typeof value === 'object' && value !== null)
-                        ? `<pre class="bg-gray-100 p-2 rounded text-xs overflow-x-auto mt-1">${JSON.stringify(value, null, 2)}</pre>`
+                        ? `<pre class="bg-gray-200 p-2 rounded text-xs overflow-x-auto mt-1 text-gray-700">${JSON.stringify(value, null, 2)}</pre>` 
                         : String(value);
                     valueClass = 'text-gray-700 font-medium text-sm'; 
                 }
                 
                 const currentHtml = `
-                    <div class="flex flex-col sm:flex-row items-start text-sm border-b border-gray-100 last:border-b-0 py-2">
-                        <span class="property-key mr-2 text-gray-500">${displayKey}:</span> 
+                    <div class="flex flex-col sm:flex-row items-start text-sm border-b border-gray-200 last:border-b-0 py-2"> 
+                        <span class="property-key mr-2 text-gray-600">${displayKey}:</span> 
                         <span class="flex-1 break-words ${valueClass} ${isPrice ? 'mt-1 sm:mt-0' : 'mt-0'}">${displayValue}</span>
                     </div>
                 `;
@@ -626,13 +629,47 @@
                 }
             });
             
+            const itemModis = item.NAMA_RAK || '-';
+            const itemShelf = item.NOSHELF || '-';
+            const itemBaris = item.KIRIKANAN || '-';
+            
+            const shelfLocationHtml = `
+                <div class="border-b border-gray-200 py-2">
+                    <div class="flex flex-col sm:flex-row items-start text-sm mb-2"> 
+                        <span class="property-key mr-2 text-gray-600">MODIS:</span> 
+                        <span class="flex-1 break-words text-gray-700 font-bold text-base">${itemModis}</span> 
+                    </div>
+                    
+                    <div class="grid grid-cols-2 gap-4 border-t border-gray-200 pt-2">
+                        <div class="flex flex-col text-sm border-r border-gray-200 pr-4">
+                            <span class="property-key text-gray-600">SHELF:</span> 
+                            <span class="break-words text-gray-700 font-bold text-base">${itemShelf}</span>
+                        </div>
+                        <div class="flex flex-col text-sm">
+                            <span class="property-key text-gray-600">BARIS:</span> 
+                            <span class="break-words text-gray-700 font-bold text-base">${itemBaris}</span>
+                        </div>
+                    </div>
+                </div>
+            `;
+            
+            normalContentHtml.unshift(shelfLocationHtml);
+
+
+            const finalPriceHtml = priceHtml 
+                ? `<div class="mt-4 pt-4 border-t-2 border-red-500 text-center">
+                       ${priceHtml.replace(/flex flex-col sm:flex-row items-start/, 'flex flex-col items-center').replace(/flex-1 break-words/, 'block w-full')}
+                   </div>`
+                : '';
+            
+            
             const finalContentHtml = `
                 ${headerHtml}
                 ${barcodeHtml}
-                ${priceHtml ? `<div class="mt-2 pt-2 border-t-2 border-green-200 text-center">${priceHtml}</div>` : ''}
-                <div class="space-y-1 border-t pt-2 border-gray-100 mt-4">
+                <div class="space-y-1 border-t pt-2 border-gray-300 mt-4"> 
                     ${normalContentHtml.join('')}
                 </div>
+                ${finalPriceHtml}
             `;
 
             modalCardContentDiv.classList.remove('content-leaving', 'content-entering'); 
@@ -648,7 +685,7 @@
             modalCardContentDiv.innerHTML = finalContentHtml;
 
             setTimeout(() => {
-                barcodesToRender.forEach(({ id, value }) => renderSingleBarcode(id, value)); 
+                barcodesToRender.forEach(({ id, value }) => renderSingleBarcode(id, value, "#000000")); 
                 
                 modalCardContentDiv.classList.add('content-active');
                 if (direction !== 0) {
@@ -735,7 +772,7 @@
                 
                 const isShelfFilterActive = filterShelfStart.value.trim() !== "" || filterShelfEnd.value.trim() !== "";
 
-                if (isShelfFilterActive) {
+                    if (isShelfFilterActive) {
                     const itemShelf = item.NOSHELF ? parseInt(item.NOSHELF) : NaN;
                     
                     if (isNaN(itemShelf)) {
@@ -747,6 +784,7 @@
                         passesShelfFilter = (itemShelf >= start) && (itemShelf <= end);
                     }
                 }
+
 
                 return passesTextSearch && passesModisFilter && passesShelfFilter;
             });
@@ -796,17 +834,17 @@
             return formatted.replace('Rp', 'Rp ');
         }
         
-        function renderSingleBarcode(elementId, value) {
+        function renderSingleBarcode(elementId, value, lineColor = "#000000") {
              const svgElement = document.getElementById(elementId);
              if (!svgElement) return;
 
              try {
                 JsBarcode(`#${elementId}`, value, {
                     format: "CODE128",
-                    displayValue: false, 
-                    lineColor: "#000000", 
-                    width: 2, 
-                    height: 50, 
+                    displayValue: true, 
+                    lineColor: lineColor, 
+                    width: 4, 
+                    height: 90, 
                     margin: 0
                 });
              } catch (e) {
